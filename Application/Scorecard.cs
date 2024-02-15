@@ -12,7 +12,7 @@ namespace Application
 
 {   //Burde flyttes til nyt project Domain 
     public class Scorecard
-    {
+{
         int id;
         int ones;
         int twos;
@@ -32,7 +32,7 @@ namespace Application
         // constructor til Scorecard, så den bruges som datatype
         // parameterne i Scorecard burde laves med et interface IScorecard
         public Scorecard(int id, int ones, int twos, int threes, int fours, int fives, int sixers, int onePair, int twoPairs, int threeEquals, int fourEquals, int littleStraight, int bigStraight, int chance, int yatzy)
-        {
+    {
             id = id;
             ones = ones;
             twos = twos;
