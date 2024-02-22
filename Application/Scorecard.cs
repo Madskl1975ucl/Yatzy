@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -79,11 +80,32 @@ namespace Application
             }
         }
 
+        public void SaveThreeEquals(List<Die> dice)
+        {
+            // Sort svarer til forech i dice, der sorter fra lavest to højest 
+            // Value.CompareTo svarer til ==
+            // 2 4 1 5 6 bliver til 1 2 4 5 6 
+            
+            dice.Sort((leftValue, rightValue) => leftValue.Value.CompareTo(rightValue.Value));
+
+            for (int i = 0; i < 4; i++)
+            {
+                int tempDieValue = dice[i].Value;
+                if (tempDieValue == dice[i + 1].Value && tempDieValue == dice[i+2].Value) 
+                {
+                    threeEquals = dice[i].Value * 3;
+                    return;
+                }
+
+            }
+        }
+
         public void SaveTwoPairs(List<Die> dice)
         {
             // Sort svarer til forech i dice, der sorter fra lavest to højest 
             // Value.CompareTo svarer til ==
             // 2 4 1 5 6 bliver til 1 2 4 5 6 
+
             dice.Sort((leftValue, rightValue) => leftValue.Value.CompareTo(rightValue.Value));
 
             for (int i = 0; i < 4; i++)
@@ -91,10 +113,42 @@ namespace Application
                 int tempDieValue = dice[i].Value;
                 if (tempDieValue == dice[i + 1].Value)
                 {
-                    twoPairs = dice[i].Value + dice[i].Value;
+                    twoPairs += dice[i].Value + dice[i].Value;
                 }
 
             }
         }
+
+        //todo: Mangler 2,3,4,5,6 + fire ens, yatzy, lille straight, store straight og chancen
+
+        public int CalculatePoints() 
+        {
+            int points = 0;
+            points += ones;
+            points += twos;
+            points += threes;
+            points += fours;
+            points += fives;
+            points += sixers;
+            if (points >= 63 && points <= 93) 
+            {
+                points += 50;
+            }
+            if (points >= 94)
+            {
+                points += 100;
+            }
+            points += onePair;
+            points += twoPairs;
+            // tilføj alle variable
+            points += yatzy;
+            if (yatzy != 0) 
+            {
+                points += 50;
+            }
+
+            return points;
+        }
+
     }
 }

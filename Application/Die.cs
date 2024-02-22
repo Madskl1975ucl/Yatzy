@@ -14,25 +14,24 @@ namespace Application
     // definition af den enkelte terning
     public class Die
     {
-        int id;
         Random _random;
-        int value;
+        int _value;
 
         // constructor til hver terning, der skal slås med 5 ad gangen i 3 omgange
-        public Die(Random random, int id) 
+        public Die(Random random) 
         {
             _random = random;
-            id = id;
         }
         
         // metode til kast af terning med random værdi ml. 1-6
         public Die RollDie() 
         { 
-            value = _random.Next(1, 6);
+            _value = _random.Next(1, 6);
             // gemmer værdien i variblen int value
             return this;
         }
         // henter nuværende værdi i int value og gør den public, så den hentes i andre metoder
-        public int Value { get{ return value;} }
+        // bruges kun til Unit test, skal erstattes med public int Value { get { return _value; } }
+        public int Value { get { return _value; } set { _value = value; } }
     }
 }

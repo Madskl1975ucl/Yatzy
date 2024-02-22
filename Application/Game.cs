@@ -38,12 +38,15 @@ namespace Application
         }
         public List<Die> RollDice() 
         {
+            // liste af dice som intern variable, som returnes
+            // kobles op på at 5 terninger slås i første omgang
+            // kobles op antal terninger, der skal slås i omgang 2 og 3
             return null;
         }
 
         public void SaveScorecard(Scorecard scorecard) 
         {
-
+            // skal gemme scorecard for player, så der kan skiftes tur
         }
 
     }
