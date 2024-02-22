@@ -12,25 +12,25 @@ namespace Application
 
 {
     // definition af den enkelte terning
-    public class Dice
+    public class Die
     {
         int id;
-        Random random;
+        Random _random;
         int value;
 
         // constructor til hver terning, der skal slås med 5 ad gangen i 3 omgange
-        public Dice(Random random, int id) 
+        public Die(Random random, int id) 
         {
-            random = random;
+            _random = random;
             id = id;
         }
         
         // metode til kast af terning med random værdi ml. 1-6
-        public int RollDice() 
+        public Die RollDie() 
         { 
-            value = random.Next(1, 6);
+            value = _random.Next(1, 6);
             // gemmer værdien i variblen int value
-            return value;
+            return this;
         }
         // henter nuværende værdi i int value og gør den public, så den hentes i andre metoder
         public int Value { get{ return value;} }

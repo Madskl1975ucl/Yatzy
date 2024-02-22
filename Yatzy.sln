@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Presentation", "Yatzy\Prese
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{BD448BA6-F764-42B3-A57F-DF7988AD6B1C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Yatzy", "1. Yatzy", "{89C6FFE0-E69A-4BBF-87F5-C1F261F391CF}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Presentation", "1. Presentation", "{89C6FFE0-E69A-4BBF-87F5-C1F261F391CF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Application", "2. Application", "{4D46F6F7-1C62-4877-B104-72F065864BA8}"
 EndProject
