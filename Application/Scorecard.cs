@@ -7,12 +7,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Application
-
+{
     // 14 metoder til at gemme result på scorecard 
     // Metode til udregning af point
     // Metode til udregning af stilling
 
-{   //Burde flyttes til nyt project Domain 
+
     public class Scorecard
 {
         int _id;
@@ -61,6 +61,66 @@ namespace Application
             }
         }
 
+        public void SaveTwos(List<Die> dice)
+        {
+            // validering om dice er korrekte
+            foreach (Die d in dice)
+            {
+                if (d.Value == 2)
+                {
+                    twos = twos + d.Value;
+                }
+            }
+        }
+
+        public void SaveThrees(List<Die> dice)
+        {
+            // validering om dice er korrekte
+            foreach (Die d in dice)
+            {
+                if (d.Value == 3)
+                {
+                    threes = threes + d.Value;
+                }
+            }
+        }
+
+        public void SaveFours(List<Die> dice)
+        {
+            // validering om dice er korrekte
+            foreach (Die d in dice)
+            {
+                if (d.Value == 4)
+                {
+                    fours = fours + d.Value;
+                }
+            }
+        }
+
+        public void SaveFives(List<Die> dice)
+        {
+            // validering om dice er korrekte
+            foreach (Die d in dice)
+            {
+                if (d.Value == 5)
+                {
+                    fives = fives + d.Value;
+                }
+            }
+        }
+
+        public void SaveSixers(List<Die> dice)
+        {
+            // validering om dice er korrekte
+            foreach (Die d in dice)
+            {
+                if (d.Value == 6)
+                {
+                    sixers = sixers + d.Value;
+                }
+            }
+        }
+
         public void SaveOnePair (List<Die> dice) 
         {
             // Sort svarer til forech i dice, der sorter fra lavest to højest 
@@ -77,26 +137,6 @@ namespace Application
                     return;
                 }
                
-            }
-        }
-
-        public void SaveThreeEquals(List<Die> dice)
-        {
-            // Sort svarer til forech i dice, der sorter fra lavest to højest 
-            // Value.CompareTo svarer til ==
-            // 2 4 1 5 6 bliver til 1 2 4 5 6 
-            
-            dice.Sort((leftValue, rightValue) => leftValue.Value.CompareTo(rightValue.Value));
-
-            for (int i = 0; i < 4; i++)
-            {
-                int tempDieValue = dice[i].Value;
-                if (tempDieValue == dice[i + 1].Value && tempDieValue == dice[i+2].Value) 
-                {
-                    threeEquals = dice[i].Value * 3;
-                    return;
-                }
-
             }
         }
 
@@ -119,6 +159,115 @@ namespace Application
             }
         }
 
+        public void SaveThreeEquals(List<Die> dice)
+        {
+            // Sort svarer til forech i dice, der sorter fra lavest to højest 
+            // Value.CompareTo svarer til ==
+            // 2 4 1 5 6 bliver til 1 2 4 5 6 
+
+            dice.Sort((leftValue, rightValue) => leftValue.Value.CompareTo(rightValue.Value));
+
+            for (int i = 0; i < 4; i++)
+            {
+                int tempDieValue = dice[i].Value;
+                if (tempDieValue == dice[i + 1].Value && tempDieValue == dice[i + 2].Value)
+                {
+                    threeEquals = dice[i].Value * 3; 
+                    return;
+                }
+
+            }
+        }
+
+        public void SaveFourEquals(List<Die> dice)
+        {
+            // Sort svarer til forech i dice, der sorter fra lavest to højest 
+            // Value.CompareTo svarer til ==
+            // 2 4 1 5 6 bliver til 1 2 4 5 6 
+
+            dice.Sort((leftValue, rightValue) => leftValue.Value.CompareTo(rightValue.Value));
+
+            for (int i = 0; i < 4; i++)
+            {
+                int tempDieValue = dice[i].Value;
+                if (tempDieValue == dice[i + 1].Value && tempDieValue == dice[i + 2].Value && tempDieValue == dice[i + 3].Value)
+                {
+                    fourEquals = dice[i].Value * 4;
+                    return;
+                }
+
+            }
+        }
+
+        public void SaveLittleStraight(List<Die> dice)
+        {
+            // Sort svarer til forech i dice, der sorter fra lavest to højest 
+            // Value.CompareTo svarer til ==
+            // 2 4 1 5 6 bliver til 1 2 4 5 6 
+            dice.Sort((leftValue, rightValue) => leftValue.Value.CompareTo(rightValue.Value));
+
+            int tempDieValue = 1;
+
+            for (int i = 1; i < 4; i++)
+            {
+                if (dice[0].Value == tempDieValue && dice[1].Value == tempDieValue + 1 && dice[2].Value == tempDieValue + 2 && dice[3].Value == tempDieValue + 3 && dice[4].Value == tempDieValue + 4)
+                {
+                    littleStraight = dice[i].Value;
+                }
+            }
+
+        }
+
+        public void SaveBigStraight(List<Die> dice)
+        {
+            // Sort svarer til forech i dice, der sorter fra lavest to højest 
+            // Value.CompareTo svarer til ==
+            // 2 4 1 5 6 bliver til 1 2 4 5 6 
+            dice.Sort((leftValue, rightValue) => leftValue.Value.CompareTo(rightValue.Value));
+
+            int tempDieValue = 2;
+
+            for (int i = 1; i < 4; i++)
+            {
+                if (dice[0].Value == tempDieValue && dice[1].Value == tempDieValue + 1 && dice[2].Value == tempDieValue + 2 && dice[3].Value == tempDieValue + 3 && dice[4].Value == tempDieValue + 4)
+                {
+                    bigStraight = dice[i].Value;
+                }
+            }
+
+        }
+
+        public void SaveChance(List<Die> dice) 
+        {
+            foreach (Die d in dice)
+            {
+                if (d.Value > 0)
+                {
+                    chance = chance + d.Value;
+                }
+            }
+        }
+
+
+        public void SaveYatzy (List<Die> dice)
+        {
+            // Sort svarer til forech i dice, der sorter fra lavest to højest 
+            // Value.CompareTo svarer til ==
+            // 2 4 1 5 6 bliver til 1 2 4 5 6 
+
+            dice.Sort((leftValue, rightValue) => leftValue.Value.CompareTo(rightValue.Value));
+
+            for (int i = 0; i < 4; i++)
+            {
+                int tempDieValue = dice[i].Value;
+                if (tempDieValue == dice[i + 1].Value && tempDieValue == dice[i + 2].Value && tempDieValue == dice[i + 3].Value && tempDieValue == dice[i + 4].Value)
+                {
+                    yatzy = dice[i].Value * 5;
+                    return;
+                }
+
+            }
+        }
         //todo: Mangler 2,3,4,5,6 + fire ens, yatzy, lille straight, store straight og chancen
 
         public int CalculatePoints() 
@@ -140,7 +289,11 @@ namespace Application
             }
             points += onePair;
             points += twoPairs;
-            // tilføj alle variable
+            points += threeEquals;
+            points += fourEquals;
+            points += littleStraight;
+            points += bigStraight;
+            points += chance;
             points += yatzy;
             if (yatzy != 0) 
             {

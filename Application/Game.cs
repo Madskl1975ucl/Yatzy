@@ -16,27 +16,27 @@ namespace Application
     {
         // List med datatypen Scorecard
         List<Scorecard> scoreCards;
-                public void AddScoreCard(Scorecard scoreCard) 
+        public void AddScoreCard(Scorecard scoreCard)
         {
             scoreCards.Add(scoreCard);
         }
-        
-        public Scorecard GetScorecardById(int id) 
+
+        public Scorecard GetScorecardById(int id)
         {
             int ScorecardId;
 
-            foreach (var scorecard in scoreCards) 
+            foreach (var scorecard in scoreCards)
             {
                 ScorecardId = scorecard.getId();
-                if (ScorecardId == id) 
+                if (ScorecardId == id)
                 {
                     return scorecard;
-                } 
-            } 
-            
+                }
+            }
+
             return null;
         }
-        public List<Die> RollDice() 
+        public List<Die> RollDice()
         {
             // liste af dice som intern variable, som returnes
             // kobles op på at 5 terninger slås i første omgang
@@ -44,12 +44,25 @@ namespace Application
             return null;
         }
 
-        public void SaveScorecard(Scorecard scorecard) 
+        public void SaveScorecard(Scorecard scorecard)
         {
             // skal gemme scorecard for player, så der kan skiftes tur
         }
 
+        
+
+        //public int NextPlayer(List<Scorecard>) 
+        //{
+        //    return 0;
+            //List <scorecards>
+            // 0 1 2 3 = 4 spillere
+            // nextplayer [i] +1
+            // if [i] == List<Scorecards>.Count
+            // nextplayder = [0]
+        //}
+
     }
+
 
     
 }
