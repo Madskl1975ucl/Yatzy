@@ -36,12 +36,19 @@ namespace Application
 
             return null;
         }
+
         public List<Die> RollDice()
         {
-            // liste af dice som intern variable, som returnes
-            // kobles op på at 5 terninger slås i første omgang
-            // kobles op antal terninger, der skal slås i omgang 2 og 3
-            return null;
+            //Round 1 viser 5 terninger, der viser 5 værdier
+            //Round 2:
+            // - vælger de terninger, der skal fjernes fra listen og erstatte nye random
+            // - reroll terninger kastes og nye værdier tilføjes listen
+            //Round 3:
+            // - vælger de terninger, der skal fjernes fra listen og erstatte nye random
+            // - reroll terninger kastes og nye værdier tilføjes listen
+            // 1 eller 2 metoder her?
+
+            return dices;
         }
 
         public void SaveScorecard(Scorecard scorecard)
@@ -49,16 +56,16 @@ namespace Application
             // skal gemme scorecard for player, så der kan skiftes tur
         }
 
-        
-
-        //public int NextPlayer(List<Scorecard>) 
+        //public List <Scorecard> NextScorecard ()
         //{
-        //    return 0;
-            //List <scorecards>
-            // 0 1 2 3 = 4 spillere
-            // nextplayer [i] +1
-            // if [i] == List<Scorecards>.Count
-            // nextplayder = [0]
+
+
+        //    // return nextScorecard;
+        //    //List < scorecards >
+        //    // 0 1 2 3 = 4 spillere
+        //    // nextplayer[i] +1
+        //    // if [i] == List<Scorecards>.Count
+        //    // nextplayder = [0]
         //}
 
     }

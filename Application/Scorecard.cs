@@ -128,7 +128,7 @@ namespace Application
             // 2 4 1 5 6 bliver til 1 2 4 5 6 
             dice.Sort((leftValue, rightValue) => leftValue.Value.CompareTo(rightValue.Value));
 
-            for (int i =0; i < 4; i++)  
+            for (int i =0; i <= 4; i++)  
             {
                 int tempDieValue = dice[i].Value;
                 if (tempDieValue == dice[i +1].Value) 
@@ -148,7 +148,7 @@ namespace Application
 
             dice.Sort((leftValue, rightValue) => leftValue.Value.CompareTo(rightValue.Value));
 
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i <= 4; i++)
             {
                 int tempDieValue = dice[i].Value;
                 if (tempDieValue == dice[i + 1].Value)
@@ -167,7 +167,7 @@ namespace Application
 
             dice.Sort((leftValue, rightValue) => leftValue.Value.CompareTo(rightValue.Value));
 
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i <= 4; i++)
             {
                 int tempDieValue = dice[i].Value;
                 if (tempDieValue == dice[i + 1].Value && tempDieValue == dice[i + 2].Value)
@@ -187,7 +187,7 @@ namespace Application
 
             dice.Sort((leftValue, rightValue) => leftValue.Value.CompareTo(rightValue.Value));
 
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i <= 4; i++)
             {
                 int tempDieValue = dice[i].Value;
                 if (tempDieValue == dice[i + 1].Value && tempDieValue == dice[i + 2].Value && tempDieValue == dice[i + 3].Value)
@@ -208,11 +208,11 @@ namespace Application
 
             int tempDieValue = 1;
 
-            for (int i = 1; i < 4; i++)
+            for (int i = 1; i <= 4; i++)
             {
                 if (dice[0].Value == tempDieValue && dice[1].Value == tempDieValue + 1 && dice[2].Value == tempDieValue + 2 && dice[3].Value == tempDieValue + 3 && dice[4].Value == tempDieValue + 4)
                 {
-                    littleStraight = dice[i].Value;
+                    littleStraight += dice[i].Value;
                 }
             }
 
@@ -227,11 +227,12 @@ namespace Application
 
             int tempDieValue = 2;
 
-            for (int i = 1; i < 4; i++)
+            for (int i = 0; i <= 4; i++)
             {
                 if (dice[0].Value == tempDieValue && dice[1].Value == tempDieValue + 1 && dice[2].Value == tempDieValue + 2 && dice[3].Value == tempDieValue + 3 && dice[4].Value == tempDieValue + 4)
                 {
-                    bigStraight = dice[i].Value;
+                    bigStraight += dice[i].Value;
+                    
                 }
             }
 
@@ -243,7 +244,7 @@ namespace Application
             {
                 if (d.Value > 0)
                 {
-                    chance = chance + d.Value;
+                    chance += d.Value;
                 }
             }
         }
@@ -257,7 +258,7 @@ namespace Application
 
             dice.Sort((leftValue, rightValue) => leftValue.Value.CompareTo(rightValue.Value));
 
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i <= 4; i++)
             {
                 int tempDieValue = dice[i].Value;
                 if (tempDieValue == dice[i + 1].Value && tempDieValue == dice[i + 2].Value && tempDieValue == dice[i + 3].Value && tempDieValue == dice[i + 4].Value)
