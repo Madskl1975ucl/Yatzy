@@ -39,6 +39,11 @@ namespace Application
             _playerName = playerName;     
         }
 
+        //public int generateId()
+        //{
+        //    return Interlocked.Increment(ref _id);
+        //}
+
         public int getId() 
         { 
             return _id; 

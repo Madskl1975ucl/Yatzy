@@ -26,7 +26,7 @@ namespace Application
         // metode til kast af terning med random værdi ml. 1-6
         public Die RollDie() 
         { 
-            _value = _random.Next(1, 6);
+            _value = _random.Next(1, 7);
             // gemmer værdien i variblen int value
             return this;
         }

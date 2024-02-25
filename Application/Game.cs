@@ -16,7 +16,7 @@ namespace Application
     {
         // List med datatypen Scorecard
         List<Scorecard> scoreCards;
-        public void AddScoreCard(Scorecard scoreCard)
+        public void AddScorecard(Scorecard scoreCard)
         {
             scoreCards.Add(scoreCard);
         }
@@ -37,19 +37,19 @@ namespace Application
             return null;
         }
 
-        public List<Die> RollDice()
-        {
-            //Round 1 viser 5 terninger, der viser 5 værdier
-            //Round 2:
-            // - vælger de terninger, der skal fjernes fra listen og erstatte nye random
-            // - reroll terninger kastes og nye værdier tilføjes listen
-            //Round 3:
-            // - vælger de terninger, der skal fjernes fra listen og erstatte nye random
-            // - reroll terninger kastes og nye værdier tilføjes listen
-            // 1 eller 2 metoder her?
+        //public List<Die> RollDice()
+        //{
+        //    //Round 1 viser 5 terninger, der viser 5 værdier
+        //    //Round 2:
+        //    // - vælger de terninger, der skal fjernes fra listen og erstatte nye random
+        //    // - reroll terninger kastes og nye værdier tilføjes listen
+        //    //Round 3:
+        //    // - vælger de terninger, der skal fjernes fra listen og erstatte nye random
+        //    // - reroll terninger kastes og nye værdier tilføjes listen
+        //    // 1 eller 2 metoder her?
 
-            return dices;
-        }
+        //    //return dices;
+        //}
 
         public void SaveScorecard(Scorecard scorecard)
         {
