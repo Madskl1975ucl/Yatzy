@@ -29,7 +29,6 @@ namespace Presentation
                 switch (menuvalg)
                 {
                     case 1:
-                        
                         Console.Write("Tilføj spiller - indtast navn: ");
                         string _playerName = Console.ReadLine();
                         Console.Write("Indtast spiler nr: ");
@@ -40,10 +39,12 @@ namespace Presentation
                         break;
                     case 2: 
                         Console.WriteLine("Nu starter spillet");
-                        break;
+                        return;
                     case 0:
                         return;
                 }
+
+
             }
         }
     }
