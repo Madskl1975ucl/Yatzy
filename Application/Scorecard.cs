@@ -393,5 +393,83 @@ namespace Application
             return points;
         }
 
+        public int GetId()
+        {
+            return _id;
+        }
+
+        public string GetName()
+        {
+            return _playerName;
+        }
+
+        public int GetOnes()
+        {
+            return ones;
+        }
+
+        public int GetTwos()
+        {
+            return twos;
+        }
+
+        public int GetThrees()
+        {
+            return threes;
+        }
+
+        public int GetFours()
+        {
+            return fours;
+        }
+
+        public int GetFives()
+        {
+            return fives;
+        }
+
+        public int GetSixers()
+        {
+            return sixers;
+        }
+
+        public int getOnePair()
+        {
+            return onePair;
+        }
+        public int getTwoPairs()
+        {
+            return twoPairs;
+        }
+
+        public int GetThreeEquals()
+        {
+            return threeEquals;
+        }
+
+        public int GetFourEquals()
+        {
+            return fourEquals;
+        }
+
+        public int GetLittleStraight()
+        {
+            return littleStraight;
+        }
+
+        public int GetBigStraight()
+        {
+            return bigStraight;
+        }
+
+        public int GetChance()
+        {
+            return chance;
+        }
+
+        public int GetYatzy()
+        {
+            return yatzy;
+        }
     }
 }
