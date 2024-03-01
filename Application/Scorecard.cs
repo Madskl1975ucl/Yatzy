@@ -182,10 +182,10 @@ namespace Application
 
             diceList.Sort((leftValue, rightValue) => leftValue.Value.CompareTo(rightValue.Value));
 
-            for (int i = 0; i <= 4; i++)  
+            for (int i = 1; i <= 4; i++)  
             {
                 int tempDieValue = diceList[i].Value;
-                if (tempDieValue == diceList[i +1].Value) 
+                if (tempDieValue == diceList[i -1].Value) 
                 {
                     onePair = diceList[i].Value + diceList[i].Value;
                 }
@@ -236,10 +236,10 @@ namespace Application
 
             diceList.Sort((leftValue, rightValue) => leftValue.Value.CompareTo(rightValue.Value));
 
-            for (int i = 0; i <= 4; i++)
+            for (int i = 1; i <= 4; i++)
             {
                 int tempDieValue = diceList[i].Value;
-                if (tempDieValue == diceList[i + 1].Value && tempDieValue == diceList[i + 2].Value)
+                if (tempDieValue == diceList[i - 1].Value && tempDieValue == diceList[i - 2].Value)
                 {
                     threeEquals = diceList[i].Value * 3;
                 }
@@ -258,10 +258,10 @@ namespace Application
 
             diceList.Sort((leftValue, rightValue) => leftValue.Value.CompareTo(rightValue.Value));
 
-            for (int i = 0; i <= 4; i++)
+            for (int i = 1; i <= 4; i++)
             {
                 int tempDieValue = diceList[i].Value;
-                if (tempDieValue == diceList[i + 1].Value && tempDieValue == diceList[i + 2].Value && tempDieValue == diceList[i + 3].Value)
+                if (tempDieValue == diceList[i - 1].Value && tempDieValue == diceList[i - 2].Value && tempDieValue == diceList[i - 3].Value)
                 {
                     fourEquals = diceList[i].Value * 4;
                 }
@@ -283,7 +283,7 @@ namespace Application
 
             int tempDieValue = 1;
 
-            for (int i = 1; i <= 4; i++)
+            for (int i = 0; i <= 4; i++)
             {
                 if (diceList[0].Value == tempDieValue && diceList[1].Value == tempDieValue + 1 && diceList[2].Value == tempDieValue + 2 && diceList[3].Value == tempDieValue + 3 && diceList[4].Value == tempDieValue + 4)
                 {
@@ -327,7 +327,7 @@ namespace Application
                 return false;
             }
 
-            foreach (Die d in dice)
+            foreach (Die d in diceList)
             {
                 if (d.Value > 0)
                 {
@@ -349,12 +349,12 @@ namespace Application
 
             diceList.Sort((leftValue, rightValue) => leftValue.Value.CompareTo(rightValue.Value));
 
-            for (int i = 0; i <= 4; i++)
+            for (int i = 1; i <= 4; i++)
             {
-                int tempDieValue = dice[i].Value;
-                if (tempDieValue == dice[i + 1].Value && tempDieValue == dice[i + 2].Value && tempDieValue == dice[i + 3].Value && tempDieValue == dice[i + 4].Value)
+                int tempDieValue = diceList[i].Value;
+                if (tempDieValue == diceList[i - 1].Value && tempDieValue == diceList[i - 2].Value && tempDieValue == diceList[i - 3].Value && tempDieValue == diceList[i - 4].Value)
                 {
-                    yatzy = dice[i].Value * 5;
+                    yatzy = diceList[i].Value * 5;
                 }
             }
             return true;

@@ -13,7 +13,7 @@ namespace Application
         private Random _random;
         private int _value;
 
-        // constructor til hver terning, der skal slås med 5 ad gangen i 3 omgange
+        // constructor til hver terning, der skal slås med
         public Die(int id, Random random)
         {
             _id = id;

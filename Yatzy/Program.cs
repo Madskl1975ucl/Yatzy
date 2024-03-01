@@ -4,6 +4,7 @@ using System.Security.Cryptography;
 using System.Xml.Linq;
 using Application;
 
+
 // display visninger og brugerinput
 
 namespace Presentation
@@ -14,64 +15,200 @@ namespace Presentation
         {
 
             {
-                Scorecard scorecard = new Scorecard(1, "Mads");
-                List<Die> dice = new List<Die>();
-                Random random = new Random();
-                dice.Add(new Die(random) { Value = 6 });
-                dice.Add(new Die(random) { Value = 2 });
-                dice.Add(new Die(random) { Value = 4 });
-                dice.Add(new Die(random) { Value = 3 });
-                dice.Add(new Die(random) { Value = 1 });
-                scorecard.SaveTwoPairs(dice);
+                Scorecards scorecards = new Scorecards();
 
-                //List<Scorecard> scorecards = new List<Scorecard>();
+                int playerCounter = 0;
+
+                // int roundsCounter = 0;
+
+                int numberOfRolls = 0;
+
+                bool terminateThisLoop = false;
+
+                Scorecard currentScorecard = null;
+
+                Dice dice = null;
+
+                Texts.ShowAddedPlayers(scorecards.GetScorecards());
+
+                Console.WriteLine("Yatzy");
+
+                Texts.MenuStart();
+
+                while (!terminateThisLoop)
+                {
+                    if (numberOfRolls == 3)
+                    {
+                        Texts.ScoreCard(currentScorecard);
+                        Console.WriteLine("Ikke flere kast, gem dit kast på Yatzy blokken");
+                        Texts.ShowScorcardSaves();
+                        int scoreSelect = 0;
+                        int.TryParse(Console.ReadLine(), out scoreSelect);
+
+                        switch (scoreSelect)
+                        {
+                            case 1:
+                                currentScorecard.SaveOnes(dice);
+                                break;
+
+                            case 2:
+                                currentScorecard.SaveTwos(dice);
+                                break;
+
+                            case 3:
+                                currentScorecard.SaveThrees(dice);
+                                break;
+
+                            case 4:
+                                currentScorecard.SaveFours(dice);
+                                break;
+
+                            case 5:
+                                currentScorecard.SaveFives(dice);
+                                break;
+
+                            case 6:
+                                currentScorecard.SaveSixers(dice);
+                                break;
+
+                            case 7:
+                                currentScorecard.SaveOnePair(dice);
+                                break;
+
+                            case 8:
+                                currentScorecard.SaveTwoPairs(dice);
+                                break;
+
+                            case 9:
+                                currentScorecard.SaveThreeEquals(dice);
+                                break;
+
+                            case 10:
+                                currentScorecard.SaveFourEquals(dice);
+                                break;
+
+                            case 11:
+                                currentScorecard.SaveLittleStraight(dice);
+                                break;
+
+                            case 12:
+                                currentScorecard.SaveBigStraight(dice);
+                                break;
+
+                            case 13:
+                                currentScorecard.SaveChance(dice);
+                                break;
+
+                            case 14:
+                                currentScorecard.SaveYatzy(dice);
+                                break;
+                        }
+                        break;
+                    }
+                    int menuSelect = 0;
+
+                    bool result = int.TryParse(Console.ReadLine(), out menuSelect);
+
+                    switch (menuSelect)
+                    {
+                        case 1: // add player
+
+                            playerCounter++;
+
+                            Texts.AddPlayer(scorecards.GetScorecards(), playerCounter);
+
+                            break;
+
+                        case 2: // start game + first roll
+
+                            dice = new Dice();
+
+                            Texts.ChoosePlayer();
+
+                            Texts.ShowAddedPlayers(scorecards.GetScorecards());
+
+                            int playerId = 0;
+
+                            int.TryParse(Console.ReadLine(), out playerId);
+
+                            currentScorecard = scorecards.GetScoreCardById(playerId);
+
+                            Texts.MenuGame();
+
+                            Texts.StartGameHeadline();
+
+                            Texts.ShowCurrentPlayer(currentScorecard);
+
+                            dice.RollDice(); // slag 1
+
+                            numberOfRolls++;
+
+                            Texts.ShowRolledDice(dice);
+
+                            // terminateThisLoop = true;
+                            break;
+
+                            case 3: // gem terninger
+
+                            Texts.ShowChooseText();
+
+                            Texts.SaveDiceText();
+
+                            string lockedDice = Console.ReadLine();
+
+                            dice.SetLockedDice(lockedDice);
+
+                            Texts.ShowSavedDiceText(lockedDice);
+
+                            dice.RollDice(); // slag 2
+
+                            numberOfRolls++;
+
+                            Texts.ShowRolledDice(dice);
+
+                            break;
+
+                            case 4: // kast igen
+
+                            dice = new Dice();
+
+                            dice.RollDice();
+
+                            numberOfRolls++;
+
+                            Texts.ShowRolledDice(dice);
+
+                            break;
+
+                            case 5: // tilføj til scorecard
+
+                            case 6: // vis scorecard
+
+                            break;
+                            
+                        case 7: // næste spiller
+                                                        
+                            break;
+                    }
 
 
-                //while (true)
-                //{
-                //    Thread.Sleep(1000);
-                //    Console.WriteLine("");
-                //    Console.WriteLine("Spil YATZY!");
-                //    string menuStart =
-                //    "1. Tilføj spiller\n" +
-                //    "2. Start spillet\n" +
-                //    "3. Vis tilføjede spillere\n" +
-                //    "0. Afslut\n" +
-                //    "Klik på menupunkt: 1, 2 eller 0 for at afslutte\n";
-
-                //    Console.WriteLine(menuStart);
-
-                //    int.TryParse(Console.ReadLine(), out int menuvalg);
-
-                //    switch (menuvalg)
-                //    {
-                //        case 1:
-                //            Console.Write("Tilføj spiller - indtast navn: ");
-                //            string _playerName = Console.ReadLine();
-                //            Console.Write("Indtast spiler nr: ");
-                //            int _id = int.Parse(Console.ReadLine());
-                //            Scorecard scorecard = new Scorecard(_id, _playerName);
-                //            scorecards.Add(new Scorecard(_id, _playerName));
-                //            Console.WriteLine($"{_playerName} med {_id} er nu med i spillet");
-                //            // Thread.Sleep(800);
-                //            break;
-                //        case 2:
-                //            Console.WriteLine("Nu starter spillet");
-                //            return;
-                //        case 3:
-                //        // scorecards.ForEach(scorecard => Console.WriteLine($"{_playerName} med id: {_id}"));
-                //        //foreach (Scorecard scorecard in scorecards)
-                //        //{
-                //        //    Console.WriteLine($"{_playerName} med id: {_id}");
-                //        //}
-                //        //break;
-                //        case 0:
-                //            return;
-        //    }
 
 
-        //}
+
+
+                    //Vis aktiv spiller
+
+                    //Vis slag
+
+
+
+
+
+
+                }
+
             }
         }
     }
 }
+
